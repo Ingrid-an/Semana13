@@ -1,0 +1,46 @@
+### API Biblioteca - Pruebas HTTP (extensión REST Client)
+@host = http://localhost:8000
+
+### 1. Listar libros (paginado, 5 por página)
+GET {{host}}/api/libros/
+
+### 2. Página 2
+GET {{host}}/api/libros/?page=2
+
+### 3. Filtrar por género
+GET {{host}}/api/libros/?genero=fantasia
+
+### 4. Filtrar por bestseller
+GET {{host}}/api/libros/?bestseller=true
+
+### 5. Buscar por título o autor
+GET {{host}}/api/libros/?search=king
+
+### 6. Ordenar por precio (descendente)
+GET {{host}}/api/libros/?ordering=-precio
+
+### 7. Combinar: romance + ordenar por año
+GET {{host}}/api/libros/?genero=romance&ordering=anio
+
+### 8. Endpoint custom: solo bestsellers
+GET {{host}}/api/libros/bestsellers/
+
+### 9. Obtener un libro por id
+GET {{host}}/api/libros/1/
+
+### 10. Crear un libro (requiere login en la API navegable)
+POST {{host}}/api/libros/
+Content-Type: application/json
+
+{
+  "titulo": "El nombre del viento",
+  "autor": "Patrick Rothfuss",
+  "genero": "fantasia",
+  "anio": 2007,
+  "precio": 52.00,
+  "stock": 10,
+  "bestseller": true
+}
+
+### 11. Documentación Swagger (abrir en navegador)
+GET {{host}}/api/docs/
